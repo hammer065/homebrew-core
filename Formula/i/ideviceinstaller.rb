@@ -5,7 +5,6 @@ class Ideviceinstaller < Formula
   sha256 "deb883ec97f2f88115aab39f701b83c843e9f2b67fe02f5e00a9a7d6196c3063"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/libimobiledevice/ideviceinstaller.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "818061a6b3ede66696892086a119faa1df036d6d4a3242672fdb955db0d23e6c"
@@ -17,6 +16,14 @@ class Ideviceinstaller < Formula
     sha256 cellar: :any,                 monterey:       "baade9b3f29b7de45b0ddfd66f911eadaba2b7d4a2fe6601e69f660757400ff7"
     sha256 cellar: :any,                 big_sur:        "76b96ca732ae1bbba325139477cca6fe6f601cb62f0435232e497d619c56d828"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "85e4dd1751770e3068d164a48202b714923ac6acb344934f67ee2c9b6bd5b375"
+  end
+
+  head do
+    url "https://git.libimobiledevice.org/ideviceinstaller.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "libimobiledevice-glue"
   end
 
   depends_on "autoconf" => :build
