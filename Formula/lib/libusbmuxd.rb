@@ -16,6 +16,12 @@ class Libusbmuxd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3e9212633194e2e9436afd98d00fd5e167ec0ff13f1abfd065112dd2dd32bd3"
   end
 
+  head do
+    url "https://git.libimobiledevice.org/libusbmuxd.git", branch: "master"
+    # Only future versions require this lib, so do not treat it as a main dependency yet
+    depends_on "libimobiledevice-glue"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
